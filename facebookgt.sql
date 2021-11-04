@@ -18,15 +18,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `mybook_db`
---
+
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `content_i_follow`
---
+
 
 CREATE TABLE `content_i_follow` (
   `id` bigint(20) NOT NULL,
@@ -37,9 +33,7 @@ CREATE TABLE `content_i_follow` (
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `content_i_follow`
---
+
 
 INSERT INTO `content_i_follow` (`id`, `userid`, `contentid`, `content_type`, `disabled`, `date`) VALUES
 (2, 45780258653, 80037172373257309, 'post', 0, '2021-01-25 09:30:19'),
@@ -49,9 +43,7 @@ INSERT INTO `content_i_follow` (`id`, `userid`, `contentid`, `content_type`, `di
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `likes`
---
+
 
 CREATE TABLE `likes` (
   `id` bigint(20) NOT NULL,
@@ -61,9 +53,7 @@ CREATE TABLE `likes` (
   `following` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `likes`
---
+
 
 INSERT INTO `likes` (`id`, `type`, `likes`, `contentid`, `following`) VALUES
 (1, 'user', '[{\"userid\":\"43452924198233985\",\"date\":\"2021-01-14 13:41:33\"},{\"userid\":\"45780258653\",\"date\":\"2021-01-25 09:18:17\"}]', 204306973626090829, '[{\"userid\":\"43452924198233985\",\"date\":\"2021-01-19 23:47:38\"}]'),
@@ -77,11 +67,7 @@ INSERT INTO `likes` (`id`, `type`, `likes`, `contentid`, `following`) VALUES
 (9, 'post', '[{\"userid\":\"43452924198233985\",\"date\":\"2021-01-22 00:25:46\"}]', 5783740831, ''),
 (10, 'user', '', 45780258653, '[{\"userid\":\"204306973626090829\",\"date\":\"2021-01-25 09:18:17\"},{\"userid\":\"43452924198233985\",\"date\":\"2021-01-25 09:18:26\"}]');
 
--- --------------------------------------------------------
 
---
--- Table structure for table `notifications`
---
 
 CREATE TABLE `notifications` (
   `id` bigint(20) NOT NULL,
@@ -93,9 +79,7 @@ CREATE TABLE `notifications` (
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `notifications`
---
+
 
 INSERT INTO `notifications` (`id`, `userid`, `activity`, `contentid`, `content_owner`, `content_type`, `date`) VALUES
 (1, 43452924198233985, 'like', 43109449895, 204306973626090829, 'post', '2021-01-19 00:05:47'),
@@ -123,9 +107,7 @@ INSERT INTO `notifications` (`id`, `userid`, `activity`, `contentid`, `content_o
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `notification_seen`
---
+
 
 CREATE TABLE `notification_seen` (
   `id` bigint(20) NOT NULL,
@@ -133,9 +115,7 @@ CREATE TABLE `notification_seen` (
   `notification_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `notification_seen`
---
+
 
 INSERT INTO `notification_seen` (`id`, `userid`, `notification_id`) VALUES
 (1, 204306973626090829, 14),
@@ -148,9 +128,7 @@ INSERT INTO `notification_seen` (`id`, `userid`, `notification_id`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `posts`
---
+
 
 CREATE TABLE `posts` (
   `id` bigint(20) NOT NULL,
@@ -168,9 +146,7 @@ CREATE TABLE `posts` (
   `tags` varchar(2048) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `posts`
---
+
 
 INSERT INTO `posts` (`id`, `postid`, `post`, `image`, `has_image`, `is_profile_image`, `is_cover_image`, `parent`, `date`, `userid`, `likes`, `comments`, `tags`) VALUES
 (1, 4747, 'hey hey there', '', 0, 0, 0, 0, '2021-01-12 21:04:52', 43452924198233985, 2, 1, ''),
@@ -200,9 +176,7 @@ INSERT INTO `posts` (`id`, `postid`, `post`, `image`, `has_image`, `is_profile_i
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `users`
---
+
 
 CREATE TABLE `users` (
   `id` bigint(20) NOT NULL,
@@ -222,9 +196,7 @@ CREATE TABLE `users` (
   `tag_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `users`
---
+
 
 INSERT INTO `users` (`id`, `userid`, `first_name`, `last_name`, `gender`, `profile_image`, `cover_image`, `date`, `online`, `email`, `password`, `url_address`, `likes`, `about`, `tag_name`) VALUES
 (1, 43452924198233985, 'Eathorne', 'Choongo', 'Male', 'uploads/43452924198233985/7RaXHpdjK2d6Abs.jpg', 'uploads/43452924198233985/cqKak3euuT8F8cl.jpg', 0000, 0, 'eathorne@yahoo.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'eathorne.choongo', 2, '', 'thorne'),
@@ -232,13 +204,8 @@ INSERT INTO `users` (`id`, `userid`, `first_name`, `last_name`, `gender`, `profi
 (3, 45780258653, 'John', 'Captain', 'Male', '', '', 0000, 0, 'john@yahoo.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'john.captain', 0, '', 'john'),
 (5, 212208, 'Peter', 'Man', 'Male', '', '', 0000, 0, 'peter@yahoo.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'peter.man', 0, '', 'peter');
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `content_i_follow`
---
+
 ALTER TABLE `content_i_follow`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`),
@@ -246,17 +213,13 @@ ALTER TABLE `content_i_follow`
   ADD KEY `disabled` (`disabled`),
   ADD KEY `date` (`date`);
 
---
--- Indexes for table `likes`
---
+
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `type` (`type`),
   ADD KEY `contentid` (`contentid`);
 
---
--- Indexes for table `notifications`
---
+
 ALTER TABLE `notifications`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`),
@@ -264,17 +227,13 @@ ALTER TABLE `notifications`
   ADD KEY `content_owner` (`content_owner`),
   ADD KEY `date` (`date`);
 
---
--- Indexes for table `notification_seen`
---
+
 ALTER TABLE `notification_seen`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`),
   ADD KEY `notification_id` (`notification_id`);
 
---
--- Indexes for table `posts`
---
+
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `postid` (`postid`),
@@ -284,9 +243,7 @@ ALTER TABLE `posts`
   ADD KEY `likes` (`likes`),
   ADD KEY `comments` (`comments`);
 
---
--- Indexes for table `users`
---
+
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`),
@@ -297,43 +254,29 @@ ALTER TABLE `users`
   ADD KEY `likes` (`likes`),
   ADD KEY `tag_name` (`tag_name`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `content_i_follow`
---
+
+
 ALTER TABLE `content_i_follow`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
---
--- AUTO_INCREMENT for table `likes`
---
+
 ALTER TABLE `likes`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
---
--- AUTO_INCREMENT for table `notifications`
---
+
 ALTER TABLE `notifications`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
---
--- AUTO_INCREMENT for table `notification_seen`
---
+
 ALTER TABLE `notification_seen`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
---
--- AUTO_INCREMENT for table `posts`
---
+
 ALTER TABLE `posts`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
---
--- AUTO_INCREMENT for table `users`
---
+
 ALTER TABLE `users`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
